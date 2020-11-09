@@ -1,0 +1,17 @@
+@import "static/styles/variables";
+@import "static/styles/mixins";
+
+.container {
+  @include center();
+  height: 50vh;
+  background-color: $dark-color;
+
+  .wrap {
+    @include center();
+    color: $basic-color;
+
+    .email {
+      margin-left: 0.5rem;
+    }
+  }
+}

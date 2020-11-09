@@ -1,0 +1,22 @@
+@import "static/styles/variables";
+@import "static/styles/mixins";
+
+.container {
+  @include sectionContainer();
+  @include center();
+  background-color: $basic-color;
+
+  .front {
+    @include sectionFront();
+    display: flex;
+
+    .left {
+      flex: 1;
+      border-right: 0.2rem $border-color solid;
+    }
+
+    .right {
+      flex: 2;
+    }
+  }
+}
