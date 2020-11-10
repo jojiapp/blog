@@ -17,10 +17,3 @@
     height: 0;
   }
 }
-
-@mixin sectionFront() {
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  border-radius: $border-radius;
-}

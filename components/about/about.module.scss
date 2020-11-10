@@ -17,7 +17,7 @@
       border-right: 0.5rem $point-color solid;
       padding-right: 5rem;
 
-      .title {
+      .infoTitle {
         font-size: $font-large;
         font-weight: bold;
         text-align: center;
@@ -37,6 +37,7 @@
 
       .list {
         display: flex;
+        margin-bottom: 3rem;
 
         li {
           width: 50%;
@@ -55,9 +56,23 @@
             &:hover {
               background-color: $point-color;
               font-weight: bold;
+              color: $basic-color;
             }
           }
         }
+      }
+
+      .contentTitle {
+        display: flex;
+        justify-content: center;
+        font-size: $font-medium;
+        font-weight: bold;
+        margin-bottom: 5rem;
+      }
+
+      .programmingList {
+        display: flex;
+        flex-wrap: wrap;
       }
     }
   }

@@ -1,3 +1,3 @@
-import AboutMe from "./about-me";
+import About from "./about";
 
-export default AboutMe;
+export default About;

@@ -25,7 +25,7 @@
       display: flex;
       font-family: $logo-font;
       font-size: $font-large;
-      text-shadow: 0.2rem 0.2rem;
+      text-shadow: 0.2rem 0.2rem $point-color;
       color: $basic-color;
 
       .icon {

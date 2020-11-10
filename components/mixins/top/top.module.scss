@@ -21,7 +21,10 @@ $default-top-img: "../../../static/images/top/top2.jpg";
   }
 
   .front {
-    @include sectionFront();
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 1rem;
     background-image: url($default-top-img);
     background-size: cover;
     background-position: center;
