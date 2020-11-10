@@ -35,13 +35,13 @@ const About = () => {
     <section className={styles.container}>
       <div className={styles.front}>
         <div className={styles.info}>
-          <h2 className={styles.infoTitle}>About</h2>
+          <h2 className={styles.title}>About</h2>
           <p className={styles.description}>
             일단 여기에 나를 소개하긴 할건데. 그게 아직은 아니야
           </p>
         </div>
-        <div className={styles.content}>
-          <ul className={styles.list}>
+        <div className={styles.programming}>
+          <ul className={styles.menuList}>
             <li>
               <button onClick={onClick}>Front-end</button>
             </li>
@@ -49,7 +49,7 @@ const About = () => {
               <button onClick={onClick}>Back-end</button>
             </li>
           </ul>
-          <h3 className={styles.contentTitle}>{currentContentTitle}</h3>
+          <h3 className={styles.title}>{currentContentTitle}</h3>
           <ul className={styles.programmingList}>
             {currentProgrammingList.map((lang) => (
               <ProgrammingItem key={uuidv4()} lang={lang} />

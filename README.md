@@ -10,14 +10,15 @@
 ## 앞으로 만들어 나갈 것
 
 - mixins
-    - [ ] Header
-    - [ ] Footer
+    - [x] Header
+    - [x] Footer
     - [x] CustomHead
 
 - [ ] Home
     - [ ] 최상단 컴포넌트
-    - [ ] 간략한 소개 -> 프로그래밍 언어 정리
-    - [ ] 포트폴리오
+    - [x] about
+    - [x] 포트폴리오
+    - [ ] 포트폴리오 실제 데이터로 변환
     
 - [ ] Custom Markdown
 

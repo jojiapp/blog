@@ -41,8 +41,8 @@ const ProgrammingItem = ({ lang }: IProps) => {
   return (
     <li className={styles.container}>
       <FontAwesomeIcon
-        className={styles.icon}
         icon={icon as IconProp}
+        className={styles.icon}
         style={{ color: iconColor as string }}
       />
 

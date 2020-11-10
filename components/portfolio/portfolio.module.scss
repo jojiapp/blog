@@ -13,28 +13,88 @@
     display: flex;
     flex-flow: row-reverse;
 
-    .info {
+    .portfolioListInfo {
       flex: 1;
       border-left: 0.5rem $point-color solid;
       padding-left: 5rem;
 
-      .infoTitle {
+      .title {
         font-size: $font-large;
         font-weight: bold;
         text-align: center;
         margin-bottom: 2em;
       }
 
-      .description {
-        font-size: $font-default;
-        font-weight: 500;
-        line-height: 1.5;
+      .portfolioList {
+        display: flex;
+        flex-wrap: wrap;
       }
     }
 
-    .content {
+    .portfolio {
       flex: 2;
       padding-right: 5rem;
+      display: flex;
+      flex-direction: column;
+
+      .info {
+        flex: 2;
+
+        .title {
+          @include center();
+          font-size: $font-medium;
+          font-weight: bold;
+          margin-bottom: 5rem;
+        }
+
+        .description {
+          font-size: $font-default;
+          line-height: 1.5;
+          text-align: center;
+        }
+      }
+
+      .linkWrap {
+        flex: 1;
+        @include center();
+
+        .linkBox {
+          display: flex;
+          width: 80%;
+          justify-content: space-around;
+
+          a {
+            @include center();
+            padding: 1rem 5rem;
+            border-radius: 1rem;
+          }
+
+          .github {
+            border: 0.2rem $dark-color solid;
+
+            .icon {
+              font-size: $font-medium;
+              margin-right: 2rem;
+            }
+
+            &:hover {
+              background-color: $dark-color;
+              color: $basic-color;
+              font-weight: bold;
+            }
+          }
+
+          .site {
+            border: 0.2rem $point-color solid;
+
+            &:hover {
+              background-color: $point-color;
+              color: $basic-color;
+              font-weight: bold;
+            }
+          }
+        }
+      }
     }
   }
 }

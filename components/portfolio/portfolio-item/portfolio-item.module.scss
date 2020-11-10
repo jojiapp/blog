@@ -1,0 +1,16 @@
+@import "static/styles/variables";
+@import "static/styles/mixins";
+
+.portfolioItem {
+  @include center();
+  width: 45%;
+  height: 10rem;
+  margin: 0.2rem;
+  border: 0.2rem $point-color solid;
+
+  button:hover {
+    background-color: $point-color;
+    color: $basic-color;
+    font-weight: bold;
+  }
+}

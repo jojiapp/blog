@@ -14,6 +14,5 @@ const Home = () => (
 
 export default Home;
 
-// TODO: git ci -m "add about content"
-// TODO: portfolio content 어떻게 뿌릴지 생각
 // TODO: posts 어떻게 할지 생각
+// TODO: Home에 nav 달지 말지 고민

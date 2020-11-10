@@ -23,7 +23,7 @@ const Header = () => {
       <div className={styles.wrap}>
         <Link href="/">
           <a className={styles.logo}>
-            <FontAwesomeIcon className={styles.icon} icon={faFeatherAlt} />
+            <FontAwesomeIcon icon={faFeatherAlt} className={styles.icon} />
             <span>jojiapp</span>
           </a>
         </Link>
