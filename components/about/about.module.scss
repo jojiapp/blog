@@ -1,0 +1,64 @@
+@import "static/styles/variables";
+@import "static/styles/mixins";
+
+.container {
+  @include sectionContainer();
+  @include center();
+  background-color: $basic-color;
+
+  .front {
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    display: flex;
+
+    .info {
+      flex: 1;
+      border-right: 0.5rem $point-color solid;
+      padding-right: 5rem;
+
+      .title {
+        font-size: $font-large;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2em;
+      }
+
+      .description {
+        font-size: $font-default;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+    }
+
+    .content {
+      flex: 2;
+      padding-left: 5rem;
+
+      .list {
+        display: flex;
+
+        li {
+          width: 50%;
+          height: 4rem;
+
+          button {
+            all: unset;
+            @include center();
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            border: 0.2rem $point-color solid;
+            border-radius: 1rem;
+            box-sizing: border-box;
+
+            &:hover {
+              background-color: $point-color;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
