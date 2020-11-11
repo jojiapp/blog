@@ -2,7 +2,6 @@
 @import "static/styles/mixins";
 
 .portfolioItem {
-  @include center();
   width: 45%;
   height: 10rem;
   margin: 0.2rem;

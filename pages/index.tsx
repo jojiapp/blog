@@ -14,5 +14,7 @@ const Home = () => (
 
 export default Home;
 
-// TODO: posts 어떻게 할지 생각
-// TODO: Home에 nav 달지 말지 고민
+// TODO: git ci -m "add services post and data setting to posts"
+
+// TODO: 폴더 목록 화면 작업
+// TODO: Markdown 화면 작업
