@@ -45,7 +45,6 @@ const ProgrammingItem = ({ lang }: IProps) => {
         className={styles.icon}
         style={{ color: iconColor as string }}
       />
-
       <span className={styles.lang}>{lang}</span>
     </li>
   );

@@ -1,0 +1,17 @@
+@import "static/styles/variables";
+@import "static/styles/mixins";
+
+.container {
+  @include sectionContainer();
+  @include center();
+  background-color: $basic-color;
+
+  .front {
+    .title {
+      margin-bottom: 5rem;
+      font-size: $font-medium;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+}

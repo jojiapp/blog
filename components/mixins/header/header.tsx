@@ -27,7 +27,7 @@ const Header = () => {
             <span>jojiapp</span>
           </a>
         </Link>
-        <Link href="#">
+        <Link href="/posts">
           <a className={styles.posts}>정리노트</a>
         </Link>
       </div>

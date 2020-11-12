@@ -12,7 +12,7 @@
 - mixins
     - [x] Header
     - [x] Footer
-    - [x] CustomHead
+    - [x] MyHead
 
 - [ ] Home
     - [ ] 최상단 컴포넌트

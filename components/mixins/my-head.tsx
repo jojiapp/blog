@@ -4,11 +4,11 @@ interface IProps {
   title: string;
 }
 
-const CustomHead = ({ title }: IProps) => (
+const MyHead = ({ title }: IProps) => (
   <Head>
     <title>{title} | jojiapp</title>
     <link rel="icon" href="/favicon.ico" />
   </Head>
 );
 
-export default CustomHead;
+export default MyHead;
