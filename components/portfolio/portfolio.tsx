@@ -15,41 +15,37 @@ interface IPortfolioList {
 
 const portfolioList = new Map<string, IPortfolioList>();
 
-portfolioList.set("Youtube", {
-  title: "Youtube",
-  description:
-    "테스트글자니까 일단 뭐라도 한거처럼 글자를 적어서 길게 만들어 보자",
+portfolioList.set("D", {
+  title: "D",
+  description: "여기에 D의 프로젝트 설명이 들어가겠지",
   githubUrl: "#",
   siteUrl: "#",
 });
 
-portfolioList.set("Facebook", {
-  title: "facebook",
-  description:
-    "테스트글자니까 일단 뭐라도 한거처럼 글자를 적어서 길게 만들어 보자",
+portfolioList.set("E", {
+  title: "E",
+  description: "여기에 E의 프로젝트 설명이 들어가겠지",
   githubUrl: "#",
   siteUrl: "#",
 });
 
-portfolioList.set("Naver", {
-  title: "Naver",
-  description:
-    "테스트글자니까 일단 뭐라도 한거처럼 글자를 적어서 길게 만들어 보자",
+portfolioList.set("M", {
+  title: "M",
+  description: "여기에 M 프로젝트 설명이 들어가겠지",
   githubUrl: "#",
   siteUrl: "#",
 });
 
-portfolioList.set("Google", {
-  title: "Google",
-  description:
-    "테스트글자니까 일단 뭐라도 한거처럼 글자를 적어서 길게 만들어 보자",
+portfolioList.set("O", {
+  title: "O",
+  description: "여기에 O의 프로젝트 설명이 들어가겠지",
   githubUrl: "#",
   siteUrl: "#",
 });
 
 const Portfolio = () => {
   const [currentPortfolio, setCurrentPortfolio] = useState(
-    portfolioList.get("Youtube")
+    portfolioList.get("D")
   );
 
   const onClick = useCallback((e: React.MouseEvent<HTMLElement>) => {

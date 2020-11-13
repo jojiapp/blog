@@ -14,5 +14,7 @@ const Home = () => (
 
 export default Home;
 
-// TODO: git ci -m "add folder UI"
-// TODO: Markdown 화면 작업
+// TODO: add Custom markdown and markdown UI
+
+// TODO: update Top component
+// TODO: markdown 파일 내에서 뒤로가기 및 최상단 가기 버튼 만들기 fixed

@@ -9,22 +9,18 @@ import itemStyles from "./dir-item/dir-item.module.scss";
 
 interface IProps {
   fileList: Array<string[]>;
+  backPath: string;
+  backTitle: string;
 }
 
-const DirList = ({ fileList }: IProps) => {
-  const router = useRouter();
-  const backPath = router.asPath.split("/");
-  backPath.pop();
-  const backTitle = backPath[backPath.length - 1];
+const DirList = ({ fileList, backPath, backTitle }: IProps) => {
   return (
     <ul className={styles.container}>
       <li>
-        <Link href={backPath.join("/") ? backPath.join("/") : "/"}>
+        <Link href={backPath}>
           <a className={itemStyles.link}>
             <FontAwesomeIcon icon={faFolderOpen} className={itemStyles.icon} />
-            <span className={itemStyles.title}>
-              {backTitle ? backTitle : "Home"}
-            </span>
+            <span className={itemStyles.title}>{backTitle}</span>
           </a>
         </Link>
       </li>

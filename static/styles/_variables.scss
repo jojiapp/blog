@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap");
 
 // color
 $font-color: #1a202c;
 $dark-color: #1a1a1a;
 $basic-color: #f7fafc;
-$point-color: #319795;
+$point-color: #2b6cb0;
 
 // gray: #4a5568
 // orange: #c05621
@@ -21,6 +23,8 @@ $point-color: #319795;
 // font-family
 $base-font: "Nanum Gothic", sans-serif;
 $logo-font: "Dancing Script", cursive, sans-serif;
+$markdown-font: "Nanum Myeongjo", serif;
+$top-font: "Nanum Brush Script", cursive, sans-serif;
 
 // font-size
 $font-large: 5rem;
