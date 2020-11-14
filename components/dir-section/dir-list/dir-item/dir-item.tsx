@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./dir-item.module.scss";
 import { faMarkdown } from "@fortawesome/free-brands-svg-icons";
 import { faFolder } from "@fortawesome/free-solid-svg-icons";
+import styles from "./dir-item.module.scss";
 
 interface IProps {
   filename: string;

@@ -20,13 +20,13 @@
     height: 100%;
     padding: 0 3rem;
     margin: 0 auto;
+    color: $basic-color;
 
     .logo {
       display: flex;
       font-family: $logo-font;
       font-size: $font-large;
       text-shadow: 0.2rem 0.2rem $point-color;
-      color: $basic-color;
 
       .icon {
         align-self: center;
@@ -36,8 +36,28 @@
 
     .posts {
       @include center();
+      width: 10rem;
+      position: relative;
       font-size: $font-default;
-      color: $basic-color;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        content: "";
+        width: 0;
+        height: 0.3rem;
+        background-color: $basic-color;
+        transition: width 0.3s;
+      }
+
+      &:hover {
+        font-weight: bold;
+
+        &::after {
+          width: 100%;
+        }
+      }
     }
   }
 }

@@ -1,8 +1,9 @@
-import styles from "./portfolio-item.module.scss";
 import * as React from "react";
+import styles from "./portfolio-item.module.scss";
 
 interface IProps {
   title: string;
+
   onClick(e: React.MouseEvent<HTMLElement>): void;
 }
 

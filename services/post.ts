@@ -15,7 +15,7 @@ class Post {
    *
    * @param fp: 기본경로를 제외한 경로를 배열로 받는 파라미터
    *
-   * 해당 경로 밑의 모든 Markdown 파일의 경로를
+   * 해당 경로 밑의 모든 MyMarkdown 파일의 경로를
    * 확장자 제거 후, 배열에 담아 반환
    *
    * 배열 하나 당 파일 하나의 경로
@@ -58,7 +58,7 @@ class Post {
    * @param fp: 기본 경로를 제외한 경로를 배열로 받는 파라미터
    *
    * 해당 폴더의 정보를 2차원 배열에 담아 반환하는 메소드
-   * Markdown 파일일 경우 파일명 대신 대제목으로 변환하여 반환
+   * MyMarkdown 파일일 경우 파일명 대신 대제목으로 변환하여 반환
    */
   getOneDirFile(fp: string[] = []): Array<string[]> {
     const fileList: Array<string[]> = [];

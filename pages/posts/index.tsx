@@ -1,29 +1,25 @@
 import { GetStaticProps } from "next";
 import Post from "../../services/post";
-import DirList from "../../components/dir-list";
 import Top from "../../components/mixins/top";
-import styles from "../../static/styles/pages/folder.module.scss";
-import MyHead from "../../components/mixins/my-head";
-import { useRouter } from "next/router";
+import MyHead from "../../components/mixins/my-head/my-head";
+import DirSection from "../../components/dir-section";
 
 interface IProps {
   fileList: Array<string[]>;
 }
 
-const Index = ({ fileList }: IProps) => {
-  return (
-    <>
-      <MyHead title="정리노트" />
-      <Top />
-      <section className={styles.container}>
-        <div className={styles.front}>
-          <h2 className={styles.title}>정리노트</h2>
-          <DirList fileList={fileList} backPath="/" backTitle="Home" />
-        </div>
-      </section>
-    </>
-  );
-};
+const Index = ({ fileList }: IProps) => (
+  <>
+    <MyHead seoTitle="개인적인 정리노트" title="정리노트" />
+    <Top title="정리노트" description="공부한 것들 정리한 폴더" />
+    <DirSection
+      title="정리노트"
+      fileList={fileList}
+      backPath="/"
+      backTitle="Home"
+    />
+  </>
+);
 
 export const getStaticProps: GetStaticProps = async () => {
   const post: Post = new Post();

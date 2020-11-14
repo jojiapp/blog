@@ -1,10 +1,10 @@
 import * as React from "react";
 import { v4 as uuidv4 } from "uuid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./portfolio.module.scss";
 import { useCallback, useState } from "react";
-import PortfolioItem from "./portfolio-item";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import PortfolioItem from "./portfolio-item";
+import styles from "./portfolio.module.scss";
 
 interface IPortfolioList {
   title: string;

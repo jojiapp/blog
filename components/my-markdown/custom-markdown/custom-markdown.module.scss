@@ -3,7 +3,7 @@
 
 .container {
   .markdownContainer {
-    max-width: 98rem;
+    max-width: 80rem;
     min-height: 100vh;
     margin: 0 auto;
     padding: 3rem 3rem 5rem;
@@ -23,28 +23,29 @@
     }
 
     h2 {
-      font-size: $font-large - 1rem;
+      font-size: $font-medium + 0.5rem;
     }
 
     h3 {
-      font-size: $font-large - 1.5rem;
+      font-size: $font-medium + 0.3rem;
     }
 
     h4 {
-      font-size: $font-large - 2rem;
+      font-size: $font-medium;
     }
 
-    h5 {
-      font-size: $font-large - 3rem;
-    }
-
+    h5,
     h6 {
-      font-size: $font-default;
+      font-size: $font-medium - 0.3rem;
     }
 
-    .codeBlock {
-      margin: 2rem;
-      border-radius: 1rem;
+    .codeBlockContainer {
+      font-size: $font-default - 0.2rem;
+
+      .codeBlock {
+        margin: 2rem;
+        border-radius: 1rem;
+      }
     }
 
     code {
@@ -52,23 +53,24 @@
       padding: 0 0.3rem;
     }
 
-    .linkWrap {
-      display: block;
+    .link {
       padding-left: 1rem;
       border-left: 0.3rem $point-color solid;
       margin: 1.5em 0;
 
+      &:hover {
+        font-weight: bold;
+      }
+
       span {
+        margin-right: 1rem;
         font-weight: bold;
         color: $point-color;
       }
-
-      a:hover {
-        font-weight: bold;
-      }
     }
 
-    ul {
+    ul,
+    ol {
       margin: 2rem 0;
 
       li {

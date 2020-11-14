@@ -1,20 +1,15 @@
-import MyHead from "../components/mixins/my-head";
+import MyHead from "../components/mixins/my-head/my-head";
 import Top from "../components/mixins/top";
 import About from "../components/about";
 import Portfolio from "../components/portfolio";
 
 const Home = () => (
   <>
-    <MyHead title="Home" />
-    <Top />
+    <MyHead seoTitle="웹 프로그래머 준비생의 개인블로그" title="Home" />
+    <Top title="Simple is Best" description="일차적으로는 완성" />
     <About />
     <Portfolio />
   </>
 );
 
 export default Home;
-
-// TODO: add Custom markdown and markdown UI
-
-// TODO: update Top component
-// TODO: markdown 파일 내에서 뒤로가기 및 최상단 가기 버튼 만들기 fixed

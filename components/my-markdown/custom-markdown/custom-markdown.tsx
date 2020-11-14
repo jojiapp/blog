@@ -62,22 +62,22 @@ class CustomMarkdown {
       },
       code: ({ language, value }) => {
         return (
-          <SyntaxHighlighter
-            style={codeStyle}
-            language={language}
-            children={value}
-            className={styles.codeBlock}
-          />
+          <div className={styles.codeBlockContainer}>
+            <SyntaxHighlighter
+              style={codeStyle}
+              language={language}
+              children={value}
+              className={styles.codeBlock}
+            />
+          </div>
         );
       },
       link: ({ href, children }) => {
         return (
-          <span className={styles.linkWrap}>
-            <span className={styles.refLinkText}>참고 사이트 : </span>
-            <a href={href} target="_blank">
-              {children}
-            </a>
-          </span>
+          <a href={href} target="_blank" className={styles.link}>
+            <span>참고 사이트</span>
+            {children}
+          </a>
         );
       },
       listItem: ({ children }) => (

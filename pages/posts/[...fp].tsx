@@ -1,14 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
-import Post from "../../services/post";
-import DirList from "../../components/dir-list";
-import Top from "../../components/mixins/top";
 import { useRouter } from "next/router";
-import MyHead from "../../components/mixins/my-head";
-import CustomMarkdown from "../../components/custom-markdown";
-import folderStyles from "../../static/styles/pages/folder.module.scss";
-import markdownStyles from "../../components/custom-markdown/custom-markdown.module.scss";
+import Post from "../../services/post";
+import Top from "../../components/mixins/top";
+import MyHead from "../../components/mixins/my-head/my-head";
+import CustomMarkdown from "../../components/my-markdown/custom-markdown";
+import MyMarkdown from "../../components/my-markdown";
+import DirSection from "../../components/dir-section";
 
 interface IProps {
   mdFile: string;
@@ -24,29 +21,27 @@ const Posts = ({ mdFile, headTitle, fileList }: IProps) => {
   const backTitle = backPath[backPath.length - 1];
   return mdFile ? (
     <>
-      <MyHead title={headTitle} />
-      <Top />
-      <ReactMarkdown
-        plugins={[gfm]}
-        renderers={customMarkdown.style()}
-        className={markdownStyles.container}
-        children={mdFile}
+      <MyHead seoTitle={`${headTitle} 정리`} title={headTitle} />
+      <Top title={headTitle} />
+      <MyMarkdown
+        customMarkdown={customMarkdown}
+        mdFile={mdFile}
+        backPath={backPath.join("/")}
       />
     </>
   ) : (
     <>
-      <MyHead title={currentFolder} />
-      <Top />
-      <section className={folderStyles.container}>
-        <div className={folderStyles.front}>
-          <h2 className={folderStyles.title}>{currentFolder.toUpperCase()}</h2>
-          <DirList
-            fileList={fileList}
-            backPath={backPath.join("/")}
-            backTitle={backTitle}
-          />
-        </div>
-      </section>
+      <MyHead seoTitle={`${currentFolder} 폴더`} title={currentFolder} />
+      <Top
+        title={currentFolder.toUpperCase()}
+        description={`${currentFolder} 정리 폴더`}
+      />
+      <DirSection
+        title={`${currentFolder}내의 파일`}
+        fileList={fileList}
+        backPath={backPath.join("/")}
+        backTitle={backTitle}
+      />
     </>
   );
 };

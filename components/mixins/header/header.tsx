@@ -2,20 +2,19 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFeatherAlt } from "@fortawesome/free-solid-svg-icons";
-
 import styles from "./header.module.scss";
 
 const Header = () => {
   const headerRef = useRef<HTMLDivElement>();
   useEffect(() => {
-    const onScroll = () => {
+    const onHeaderScroll = () => {
       window.pageYOffset === 0
         ? (headerRef.current.style.backgroundColor = "transparent")
         : (headerRef.current.style.backgroundColor = "#1a1a1a");
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onHeaderScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onHeaderScroll);
     };
   }, []);
   return (
