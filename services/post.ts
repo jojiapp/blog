@@ -10,7 +10,7 @@ class Post {
   constructor() {
     this._defaultFp = [process.cwd(), "posts"];
   }
-
+  
   /**
    *
    * @param fp: 기본경로를 제외한 경로를 배열로 받는 파라미터
