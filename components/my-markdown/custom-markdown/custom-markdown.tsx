@@ -1,9 +1,9 @@
-import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
-import {okaidia as codeStyle} from "react-syntax-highlighter/dist/cjs/styles/prism";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { okaidia as codeStyle } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./custom-markdown.module.scss";
-import {faAsterisk} from "@fortawesome/free-solid-svg-icons";
-import {faFileCode} from "@fortawesome/free-regular-svg-icons";
+import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
+import { faFileCode } from "@fortawesome/free-regular-svg-icons";
 
 class CustomMarkdown {
   private numberList: number[];
@@ -32,79 +32,82 @@ class CustomMarkdown {
   style() {
     this.numberList = [0, 0, 0, 0, 0];
     return {
-      heading: ({level, children}) => {
+      heading: ({ level, children }) => {
         this.getTitleNumber(level);
         const titleNumber = this.numberList.filter((n) => n !== 0).join(".");
 
         return level === 1 ? (
-            <></>
+          <></>
         ) : level === 2 ? (
-            <h2>
-              {titleNumber}. {children}
-            </h2>
+          <h2>
+            {titleNumber}. {children}
+          </h2>
         ) : level === 3 ? (
-            <h3>
-              {titleNumber}. {children}
-            </h3>
+          <h3>
+            {titleNumber}. {children}
+          </h3>
         ) : level === 4 ? (
-            <h4>
-              {titleNumber}. {children}
-            </h4>
+          <h4>
+            {titleNumber}. {children}
+          </h4>
         ) : level === 5 ? (
-            <h5>
-              {titleNumber}. {children}
-            </h5>
+          <h5>
+            {titleNumber}. {children}
+          </h5>
         ) : (
-            <h6>
-              {titleNumber}. {children}
-            </h6>
+          <h6>
+            {titleNumber}. {children}
+          </h6>
         );
       },
-      code: ({language, value}) => {
+      code: ({ language, value }) => {
         return (
-            <div className={styles.codeBlockContainer}>
-              <SyntaxHighlighter
-                  style={codeStyle}
-                  language={language}
-                  children={value}
-                  className={styles.codeBlock}
-              />
-            </div>
+          <div className={styles.codeBlockContainer}>
+            <SyntaxHighlighter
+              style={codeStyle}
+              language={language}
+              children={value}
+              className={styles.codeBlock}
+            />
+          </div>
         );
       },
-      link: ({href, children}) => {
+      link: ({ href, children }) => {
         return (
-            <a href={href} target="_blank" className={styles.link}>
-              <span>참고</span>
-              {children}
-            </a>
+          <a href={href} target="_blank" className={styles.link}>
+            <span>참고</span>
+            {children}
+          </a>
         );
       },
-      listItem: ({children}) => (
-          <li>
-            <FontAwesomeIcon className={styles.icon} icon={faAsterisk}/>
-            <div>{children}</div>
-          </li>
+      listItem: ({ children }) => (
+        <li>
+          <FontAwesomeIcon className={styles.icon} icon={faAsterisk} />
+          <div>{children}</div>
+        </li>
       ),
-      emphasis: ({children}) => (
-          <span className={styles.fileTitleWrap}>
-          <FontAwesomeIcon className={styles.icon} icon={faFileCode}/>
+      emphasis: ({ children }) => (
+        <span className={styles.fileTitleWrap}>
+          <FontAwesomeIcon className={styles.icon} icon={faFileCode} />
           <span>{children}</span>
         </span>
       ),
-      image: ({src, alt}) => {
+      image: ({ src, alt }) => {
         return (
-            <img
-                src={`
+          <img
+            src={`
               ${
-                    process.env.NODE_ENV === "production"
-                        ? "https://jojiapp.github.io/blog"
-                        : ""
-                }/${src}`}
-                alt={alt}
-            />
+                process.env.NODE_ENV === "production"
+                  ? "https://jojiapp.github.io/blog"
+                  : ""
+              }/${src}`}
+            alt={alt}
+          />
         );
       },
+      inlineCode: ({ children }) => (
+        <code className={styles.code}>{children}</code>
+      ),
     };
   }
 }
