@@ -93,17 +93,15 @@ class CustomMarkdown {
         </span>
       ),
       image: ({ src, alt }) => {
-        return (
-          <img
-            src={`
-              ${
-                process.env.NODE_ENV === "production"
-                  ? "https://jojiapp.github.io/blog"
-                  : ""
-              }/${src}`}
-            alt={alt}
-          />
-        );
+        const check = (src as string).split("/")[0] === "https:";
+        const fullSrc = `${
+          check
+            ? src
+            : process.env.NODE_ENV === "production"
+            ? "https://jojiapp.github.io/blog"
+            : ""
+        }/${src}`;
+        return <img src={fullSrc} alt={alt} />;
       },
       inlineCode: ({ children }) => (
         <code className={styles.code}>{children}</code>

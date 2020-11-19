@@ -7,7 +7,12 @@
     "prebuild": "rm -rf .next && rm -rf out",
     "build": "next build",
     "prestart": "yarn build",
-    "start": "next start"
+    "start": "next start",
+    "preexport": "yarn build",
+    "export": "next export && touch out/.nojekyll",
+    "predeploy": "yarn export && git add . && git ci -m deploy && git push origin master",
+    "deploy": "git subtree push --prefix out origin gh-pages",
+    "rmgh": "git push origin --delete gh-pages"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
