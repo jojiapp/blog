@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header ref={headerRef} className={styles.container}>
       <div className={styles.wrap}>
-        <Link href={prefix}>
+        <Link href={`${prefix}/`}>
           <a className={styles.logo}>
             <FontAwesomeIcon icon={faFeatherAlt} className={styles.icon} />
             <span>jojiapp</span>
