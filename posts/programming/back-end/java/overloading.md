@@ -9,7 +9,7 @@
 - `같은 이름`이여야 합니다.
 - 파라미터의 `타입`, `개수`, `순서` 중 하나라도 달라야 합니다.
 
-## Overloading 선언 방법
+## Overloading 정의 방법
 
 ```java
 public class Foo {
