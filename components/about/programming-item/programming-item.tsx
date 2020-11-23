@@ -32,7 +32,7 @@ const ProgrammingItem = ({ lang }: IProps) => {
       case "Python":
         return [faPython, "#f6e05e"];
       default:
-        return [faEyeSlash, "#1a1a1a"];
+        return [lang.charAt(0), "#1a1a1a"];
     }
   }, []);
 
@@ -40,11 +40,15 @@ const ProgrammingItem = ({ lang }: IProps) => {
 
   return (
     <li className={styles.container}>
-      <FontAwesomeIcon
-        icon={icon as IconProp}
-        className={styles.icon}
-        style={{ color: iconColor as string }}
-      />
+      {typeof icon === "string" ? (
+        <div className={styles.icon}>{icon}</div>
+      ) : (
+        <FontAwesomeIcon
+          icon={icon as IconProp}
+          className={styles.icon}
+          style={{ color: iconColor as string }}
+        />
+      )}
       <span className={styles.lang}>{lang}</span>
     </li>
   );

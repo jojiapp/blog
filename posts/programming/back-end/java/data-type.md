@@ -1,4 +1,4 @@
-# 데이터 타입
+# Data Type (데이터 타입)
 
 ## 기본 타입 (Primitive Type)
 
