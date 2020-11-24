@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { okaidia as codeStyle } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { coy as codeStyle } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./custom-markdown.module.scss";
 import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
