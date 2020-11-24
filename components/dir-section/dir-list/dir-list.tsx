@@ -18,7 +18,9 @@ const DirList = ({ fileList, backPath, backTitle }: IProps) => (
       <Link href={backPath}>
         <a className={itemStyles.link}>
           <FontAwesomeIcon icon={faFolderOpen} className={itemStyles.icon} />
-          <span className={itemStyles.title}>{backTitle}</span>
+          <span className={itemStyles.title}>{`${backTitle
+            .charAt(0)
+            .toUpperCase()}${backTitle.slice(1)}`}</span>
         </a>
       </Link>
     </li>

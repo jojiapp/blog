@@ -21,7 +21,9 @@ const DirItem = ({ filename, title }: IProps) => {
             icon={ext ? faMarkdown : faFolder}
             className={styles.icon}
           />
-          <span className={styles.title}>{title}</span>
+          <span className={styles.title}>
+            {ext ? title : `${title.charAt(0).toUpperCase()}${title.slice(1)}`}
+          </span>
         </a>
       </Link>
     </li>
