@@ -28,16 +28,16 @@
     }
 
     h3 {
-      font-size: $font-medium + 0.3rem;
+      font-size: $font-medium;
     }
 
     h4 {
-      font-size: $font-medium;
+      font-size: $font-medium - 0.3rem;
     }
 
     h5,
     h6 {
-      font-size: $font-medium - 0.3rem;
+      font-size: $font-medium - 0.5rem;
     }
 
     .codeBlockContainer {
