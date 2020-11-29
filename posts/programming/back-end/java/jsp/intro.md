@@ -1,6 +1,15 @@
 # JSP 소개
 
-## Servlet 이란?
+## JSP가 필요한 이유
+
+웹은 **HTML**, **CSS**, **Javascript**로 화면을 구현하는데, 이는 웹 브라우저에서 실행되기 때문에, **DB**나 **시스템** 등과 소통을 할 수가 없습니다.
+그래서 **DB**나 **시스템**등과 소통이 가능한 백엔드 단 언어가 필요하고, 그 백엔드 언어와 소통하여 데이터를 가져와야 합니다.
+
+**JSP**는 **Java Server Page**의 약자로 Java 코드가 사용이 가능한(웹과 관련된 요소들을 사용할 수 있는) HTML 파일이라고 생각하면 될 거 같습니다. (+ JSP 문법)
+
+> 엄밀히 따지면, **JSP**는 **Servlet**으로 컴파일 되기 때문에 전부 **Java**코드가 됩니다.
+
+### Servlet 이란?
 
 [Servlet과 JSP 비교](https://m.blog.naver.com/acornedu/221128616501)
 
@@ -12,11 +21,11 @@
 
 > **Java** 코드 안에 **HTML** 코드가 들어갑니다. (정확히는 `String`으로 **HTML** 코드를 구현)
 
-### Servlet의 단점
+#### Servlet의 단점
 
 **Java**를 기반으로 하기 때문에, **Java**를 알아야 하며, **화면 Interface 구현**에 너무 많은 코드가 비효율적입니다.
 
-## JSP (Java Server Page) 란?
+### JSP (Java Server Page) 란?
 
 **JSP**는 **Servlet**의 단점을 보완하고자 만든 **Servlet 기반의 스크립트 언어**입니다.
 **Servlet**은 모든 **HTML**을 `String`으로 만들어야 했지만, **JSP**는 **HTML**과 **Java**를 모두 사용 할 수 있습니다.
@@ -26,16 +35,19 @@
 
 > **HTML** 코드 안에 **Java** 코드가 들어갑니다. (정확히는 **HTML** 코드와 **Java** 코드를 같이 사용)
 
-## MVC 패턴
-
-- **Model**: 비즈니스 로직을 처리 (**DB**와 소통)
-- **View**: 화면의 UI를 처리 (**JSP**)
-- **Controller**: **Model**과 **View**를 연결해 주는 다리 역할
-
-서버로 요청을 보내면 해당 **URL**과 일치하는 **Controller**가 받아서 **Model**과 작업을 한 뒤,
-작업 한 데이터를 **View**에 보냅니다. 그러면 **View**는 받은 데이터를 가지고 동적인 웹 페이지를 만들어 사용자에게 보여줍니다.
-
-기존에는 **JSP** 만으로 다 처리하는 **Model 1 방식**을 썼지만,
-유지보수 시 힘든점이 많아 요즘은 **Servlet**과 **JSP**를 동시에 쓰는 **Model 2 (MVC 패턴) 방식**을 사용합니다.
-
 > **Servlet**과 **JSP** 모두 **Sun Microsystems**사에서 만들었습니다.
+
+## Apache Tomcat
+
+우선 웹의 요청을 받을려면 웹 서버가 필요합니다. 많은 웹 서버가 있지만, **JSP**는 주로 **Apache Tomcat**을 사용합니다.
+
+- **Apache**는 **정적인 요청**을 처리하는 **Web Server** 입니다.
+- **Tomcat**은 **동적인 요청**을 처리하는 **WAS(Web Application Server)** 입니다.
+
+클라이언트에서 요청이 들어오면 해당 요청이 정적인 요청(HTML, CSS, Javascript, Image 등등)인지 동적인 요청(JSP)인지 판별하여,
+정적인 요청이면 해당 요청을 바로 응답해주고, 동적인 요청이라면 **Tomcat**으로 해당 요청을 넘깁니다.
+그렇게 **Tomcat**에서 요청을 처리하여 응답을 주면, 그 응답을 **Apache**가 받아 다시 클라이언트에게 보냅니다.
+
+**WAS**(Tomcat)가 없으면 **JSP**파일을 컴파일 할 수 없으므로 반드시 설치해줘야 합니다.
+
+> **Apache**와 **Tomcat**은 같이 설치 됩니다.
