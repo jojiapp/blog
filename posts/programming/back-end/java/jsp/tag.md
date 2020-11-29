@@ -6,7 +6,7 @@
 
 ### Directives (지시자)
 
-```jsp
+```html
 <%@ %>
 ```
 
@@ -14,7 +14,7 @@
 
 ### Scriptlet Elements (스크립트릿)
 
-```jsp
+```html
 <% %>
 ```
 
@@ -23,7 +23,7 @@
 
 ### Declarations (선언문)
 
-```jsp
+```html
 <%! %>
 ```
 
@@ -32,7 +32,7 @@
 
 ### Expressions (표현식)
 
-```jsp
+```html
 <%= %>
 ```
 
@@ -70,7 +70,7 @@ public class Foo {
 }
 ```
 
-```jsp
+```html
 <jsp:useBean id="foo" class="com.company.Foo />
 ```
 
@@ -85,7 +85,7 @@ Foo foo = new Foo();
 - 해당하는 **Java Bean**의 필드 값을 설정하는 태그입니다.
 - 해당하는 필드의 **Setter**를 호출합니다.
 
-```jsp
+```html
 <jsp:setProperty name="foo" property="name" value="jojapp"/>
 ```
 
@@ -95,7 +95,7 @@ Foo foo = new Foo();
 
 #### Parameter 값 전체 주입하기
 
-```jsp
+```java
 String name = request.getParameter("name");
 int age = Integer.parseInt(request.getParameter("age"));
 ```
@@ -105,7 +105,7 @@ int age = Integer.parseInt(request.getParameter("age"));
 
 그러나, `useBean`과 `setProperty`를 사용하면 간편하게 값을 바인딩 할 수 있습니다. 
 
-```jsp
+```html
 <jsp:useBean id="foo" class="com.company.Foo>
   <jsp:setProperty name="foo" property="*"/>
 </jsp:useBean>
@@ -122,7 +122,7 @@ int age = Integer.parseInt(request.getParameter("age"));
 - 해당하는 **Java Bean**의 필드 값을 가져오는 태그입니다.
 - 해당하는 필드의 **Getter**를 호출합니다.
 
-```jsp
+```html
 <jsp:setProperty name="foo" property="name"/>
 ```
 
@@ -133,13 +133,13 @@ int age = Integer.parseInt(request.getParameter("age"));
 
 - 현재 페이지의 정보를 유지한 채 페이지를 이동하는 태그입니다.
 
-```jsp
+```html
 <jsp:forward page="a.jsp"/>
 ```
 
 - a.jsp 페이지로 이동합니다. (`request`의 정보는 유지한 채 이동합니다.)
 
-```jsp
+```html
 <jsp:forward page="a.jsp">
   <jsp:param name="name" value="jojiapp"/>
 </jsp:forward>
@@ -154,13 +154,13 @@ int age = Integer.parseInt(request.getParameter("age"));
 - 현재 페이지에 다른 페이지를 `include` 하는 태그 입니다.
 
 *a.jsp*
-```jsp
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <span>페이지 a삽입</span>
 ```
 
 *index.jsp*
-```jsp
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -175,7 +175,7 @@ int age = Integer.parseInt(request.getParameter("age"));
 
 - **index 페이지 페이지 a삽입** 으로 **a.jsp**가 제대로 `include` 된걸 볼 수 있습니다.
 
-```jsp
+```html
 <jsp:include page="a.jsp">
   <jsp:param name="name" value="jojiapp"/>
 </jsp:include>
