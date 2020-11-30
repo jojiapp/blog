@@ -4,7 +4,7 @@
 
 현실 세계에서 상속이란 부모가 자식에게 물려주는 유산 같은 것을 말합니다.
 프로그래밍 세계에서도 똑같이 적용됩니다.
-부모 클래스로 부터 물려받은 필드와 메소드는 정의 할 필요 없이 내 것처럼 사용할 수 있습니다.
+부모 클래스로 부터 물려받은 멤버(필드와 메소드)는 정의 할 필요 없이 내 것처럼 사용할 수 있습니다.
 
 > 조금 다른게 있다면, 현실 세계에선 부모님에게 상속 결정권이 있지만, 프로그래밍 세계에선 자식 클래스에게 상속 결정권이 있습니다.
 
@@ -13,7 +13,7 @@
 ## 상속의 장점
 
 - 코드 중복을 줄일수 있습니다.
-    - 중복되는 필드나 메소드는 부모 클래스에 정의하고, 자식 클래스들은 부모 클래스를 상속받아 사용하면 되기 때문입니다.
+    - 중복되는 멤버는 부모 클래스에 정의하고, 자식 클래스들은 부모 클래스를 상속받아 사용하면 되기 때문입니다.
 - 유지보수가 쉽습니다.
     - 부모 클래스의 코드를 변경하면, 상속 받은 모든 자식 클래스도 변경된 코드를 사용하기 때문입니다.
 
@@ -108,7 +108,7 @@ public class Goo extends Foo {
 난 그런거 적은적이 없는데? 라고 할 수 있지만, 부모 클래스의 생성자를 호출하지 않으면 컴파일러가 자동으로 생성자 첫 줄에 부모 클래스의 기본 생성자(`super()`)를 넣어줍니다.
 이렇게 자식 인스턴스를 생성하면 자식 클래스 생성자에서 부모 생성자를 호출 하여 부모 인스턴스를 생성합니다.
 
-그래서 자식 클래스에서 필드와 메소드를 **Overriding**을 하더라도, `super` 키워드를 이용하여 부모 인스턴스의 필드와 메소드에 접근할 수 있는 것입니다.
+그래서 자식 클래스에서 멤버를 **Overriding** 할 때, `super` 키워드를 이용하여 부모 인스턴스의 멤버에 접근할 수 있는 것입니다.
 단, 외부에선 `super` 키워드를 사용할 수 없으니 당연히 직접 접근은 할 수 없습니다.
 
 > `this` 키워드로 현재 객체에 접근할 수 있듯이, `super` 키워드로 부모 인스턴스에 접근할 수 있습니다.
@@ -339,6 +339,198 @@ public class Ex {
 모르는 사람이 우리 집에 왔으면 신고해야죠. (**신고 = 에러**)
 
 > 즉, 아래에서 위로 갔다가 다시 내려오는 것은 가능하지만, 처음부터 위에서 바로 내려오는 것은 안됩니다.
+
+### 인스턴스가 각각 생성되는데, 부모 클래스로 형 변환을 해도 자식 클래스에서 Override 한 게 그대로 써지던데 그건 어떻게 된거지?
+
+*Foo.java*
+```java
+public class Foo {
+  
+  public void print() {
+    System.out.println("Foo");
+  };
+}
+```
+
+*Goo.java*
+```java
+public class Goo extends Foo {
+  
+  public void print() {
+    System.out.println("Goo");
+  };
+}
+```
+
+*Ex.java*
+```java
+public class Ex {
+  public static void main(String[] args){
+    Foo goo = new Goo();
+    goo.print(); // 부모 클래스로 형 변환을 했음에도 Goo가 찍힘
+  }
+}
+```
+
+참조형은 **UpCasting**을 하게 되도, 데이터가 손실되지 않습니다. 단지, 쓸 수 있는 영역만 좁아지게 된거죠.
+
+Java 입장에서는 같은 이름, 같은 시그니처로 정의된 게 여러 개니까, 각각 구분할 수가 없습니다.
+그래서 뒤에 정의한(자식 클래스) 멤버를 사용하게 됩니다.
+
+그래서 부모 클래스로 형 변환을 해도 자식 클래스가 정의한 메소드를 사용하게 되는 것입니다.
+
+> 같은 이름이 두 개여서, 부모 인스턴스의 멤버가 **은닉**되는 것이지, 덮어쓰기 되어 사라지는게 아닙니다.
+> 그래서 자식 인스턴스 내에서는 `super` 키워드로 부모 인스턴스의 멤버에 접근이 가능한 것 입니다. 
+
+#### 현실 세계에 대입
+
+집을 지을 때 무조건 부모님 집을 먼저 짓는데, 이때, 부모님 집의 구조를 그대로 지어야 합니다. (`super()`)
+ 
+그런데, 짓다보니 나는 기존의 부모님 집의 구조가 마음에 안든거죠. 그래서 내 마음대로 바꾼겁니다. (**Override**)
+예를 들면, 기존의 부모님이 쓰는 식탁의 모양이 마음에 안들어서 내가 다른 식탁의 모양으로 바꾼거죠. (**print = 식탁**)
+
+> 단, 이때 원한다면 부모님의 식탁 + @로도 가능 (`super.print()` 사용 후, 추가적인 작업)
+
+그래서 부모님이 자식 집에 놀러오면 바뀐 식탁을 사용 할 수 밖에 없게 되는 겁니다.
+
+### 컴파일 된 결과
+
+사실 위와 같이 형 변환을 하고 어쩌고.. 해도 결국 컴파일을 하면 처음에 생성된 인스턴스를 가리킵니다.
+애초에 주소 값이 달라진 적이 없으니까 어찌보면 당연한 말이기도 합니다.
+
+*Foo.java*
+```java
+public class Foo {
+  
+  public void print() {
+    System.out.println("Foo");
+  };
+}
+```
+
+*Goo.java*
+```java
+public class Goo extends Foo {
+  
+  public void print() {
+    System.out.println("Goo");
+  };
+}
+```
+
+*Ex.java*
+```java
+public class Ex {
+  public static void main(String[] args){
+    Foo foo1 = new Foo();
+    Goo goo = new Goo();
+    Foo foo2 = goo;
+
+    foo1.print();
+    goo.print();
+    foo2.print();
+  }
+}
+```
+
+*Ex.class*
+```java
+public class Ex {
+  public Ex02() {
+  }
+
+  public static void main(String[] args) {
+    Foo foo1 = new Foo();
+    Goo goo = new Goo();
+    foo1.print();
+    goo.print();
+    goo.print();
+  }
+}
+```
+
+- 컴파일 된 결과는 위와 같습니다.
+
+그럼 어차피 같은 인스턴스인데 그대로 쓰지, 뭐하러 형 변환을 하지? 할 수 있는데,
+
+부모 클래스를 상속받은 자식 클래스들을 부모 클래스 하나로 묶을 수 있게 되고, 이는 어떤 인스턴스 인지는 모르겠으나,
+부모 클래스로 형 변환이 무사히 됐다면, 부모 클래스 내의 멤버들은 전부 사용이 가능 하다는 보장이 생기기 때문입니다.
+
+*Foo.java*
+```java
+public class Foo {
+  
+  public void print() {
+    System.out.println("Foo");
+  };
+}
+```
+
+*Goo.java*
+```java
+public class Goo extends Foo {
+  
+  public void print() {
+    System.out.println("Goo");
+  };
+}
+```
+
+*Hoo.java*
+```java
+public class Hoo extends Foo {
+  
+  public void print() {
+    System.out.println("Hoo");
+  };
+}
+```
+
+*Ex.java*
+```java
+public class Ex {
+  public static void main(String[] args){
+    Goo goo = new Goo();
+    Hoo hoo = new Hoo();
+    
+    print(goo);
+    print(hoo);
+  }
+  public static void print(Goo goo) {
+    goo.print();
+  }
+  public static void print(Hoo hoo) {
+    hoo.print();
+  }
+}
+```
+
+- 상속으로 인한 클래스의 다형성이 없다면, 이런 식으로 각 타입마다 **Overloading**을 이용하여 정의해줘야 합니다.
+- 클래스가 많다면, **Overloading** 메소드도 계속 늘어나게 됩니다.
+    - 추가적인 작업이 있다면 같은 코드 복붙하거나 메소드를 하나 만들어 해당 메소드를 모든 **Overloading** 메소드에서 호출해야 합니다. (관리하기 힘듦)
+
+*Ex.java*
+```java
+public class Ex {
+  public static void main(String[] args){
+    Foo goo = new Goo();
+    Foo hoo = new Hoo();
+    
+    print(goo); // Goo
+    print(hoo); // Foo
+  }
+  public static void print(Foo foo) {
+    foo.print();
+  }
+}
+```
+
+- 하지만 상속에 의한 클래스의 다형성을 사용한다면, 각각 다른 인스턴스를 부모 클래스(`Foo`) 타입으로 통일하여 받아 사용이 가능합니다.
+- `Foo`클래스의 자식 클래스는 `print()` 메소드가 정의 되어 있다는 보장이 있으므로, `Foo` 타입으로 받으면 무조건 `print()` 메소드를 사용할 수 있습니다.
+    - 추가적인 작업이 있어도 하나의 메소드에서 다 처리할 수 있게 됩니다. (관리하기 편함)
+
+> 즉, 각각 다른 인스턴스 임에도, 부모 클래스의 멤버는 정의되어 있다는 보장이 생겨,
+> 하나의 타입으로, 다양한 인스턴스를 주입 받아 각각 다른 결과를 낼 수 있습니다. (**클래스의 다형성**)
 
 ### 그러면, 부모 자료형이 자식 인스턴스를 받은건지, 자기 자신의 인스턴스인지 어떻게 알지?
 
