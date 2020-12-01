@@ -551,3 +551,54 @@ public class Ex {
 ``` 
 
 - 위와 같이 체크해서 `true`일 때만 형 변환을 하면 됩니다.
+
+### 주의할 점
+
+*Foo.java*
+```java
+public class Foo {
+  String name = "Foo";
+  
+  public void print() {
+    System.out.println("Foo");
+  }
+}
+```
+
+*Goo.java*
+```java
+public class Goo extends Foo {
+  String name = "Goo";
+
+  public void print() {
+    System.out.println("Goo");
+  }
+}
+```
+
+*Ex.java*
+```java
+public class Ex {
+  public static void main(String[] args) {
+    Foo foo = new Foo();
+    System.out.println(foo.name); // Foo
+    foo.print(); // Foo
+
+    Goo goo = new Goo();
+    System.out.println(goo.name); // Goo
+    goo.print(); // Goo
+
+    Foo foo1 = new Goo();
+    System.out.println(foo1.name); // Foo
+    foo1.print(); // Goo
+  }
+}
+```
+
+이렇게, 메소드는 **Overriding** 된 자식 인스턴스의 메소드가 실행되지만,
+필드는 부모 인스턴스의 필드를 사용하게 됩니다.
+
+> 아마도, 메소드는 메모리를 효율적으로 사용하기 위해 인스턴스마다 생성하지 않고, 하나만 생성하기 때문에, **Overriding**이 되는데,
+> 필드는 각 인스턴스마다 별도로 존재하기 때문에 그런게 아닌가 생각해봅니다.
+
+즉, 필드는 참조 변수 타입에 따라 결정되고, 메소드는 실제 인스턴스에 따라 결정됩니다.
