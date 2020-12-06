@@ -116,8 +116,8 @@ public class Hoo implements Foo, Goo {
 }
 ```
 
-- `implements` 키워드를 이용해서 여러 개의 `interface`를 상속 받을 수 있습니다.
-- 모두 추상 메소드이기 때문에, 전부 **Overriding** 해주어야 합니다.
+- `implements` 키워드를 이용해서 여러 개의 `interface`를 다중 구현 할 수 있습니다.
+- 전부 추상 메소드이기 때문에, 전부 **Overriding** 해주어야 합니다.
 
 *Ex.java*
 
@@ -134,4 +134,58 @@ public class Ex {
 }
 ```
 
-- 두 개의 인터페이스를 상속받아 다중 구현 했기 때문에, 두 개의 인터페이스로 모두 **UpCasting**이 가능합니다.
+- 두 개의 `interface`를 다중 구현 했기 때문에, 두 개의 `interface`로 모두 **UpCasting**이 가능합니다.
+
+### 인터페이스 다중 상속
+
+*Foo.interface*
+
+```java
+public interface Foo {
+  void printFoo();
+}
+```
+
+*Goo.interface*
+
+```java
+public interface Goo {
+  void printGoo();
+}
+```
+
+*Hoo.interface*
+
+```java
+public interface Hoo extends printFoo, printGoo {
+  void printHoo();
+}
+```
+
+*Joo.java*
+
+```java
+public class Joo implements Hoo {
+
+  @Override
+  public void printFoo() {
+    System.out.println("Foo");
+  }
+
+  @Override
+  public void printGoo() {
+    System.out.println("Goo");
+  }
+
+  @Override
+  public void printHoo() {
+    System.out.println("Hoo");
+  }
+}
+```
+
+`class`는 `implements`는 여러 개 받을 수 있지만, 상속은 단, 하나만 가능합니다.
+
+그런데, `interface`는 `implements`를 사용할 수 없습니다. 대신 `interface` 상속을 여러 개 받을 수 있습니다.
+
+기존의 상속과 같은 개념이기 때문에, 다른 `interface`를 상속 받은 `interface`를 `implements` 한다면, 상속 받은 모든 추상 메소드를 **Overriding** 해야 합니다.

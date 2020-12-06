@@ -35,9 +35,29 @@ public class Foo {
 }
 ```
 
-`java.sql.Driver` 인터페이스를 상속한 `Driver` 클래스가 동적으로 로딩될 때, 자동으로 **JDBC 드라이버**의 인스턴스가 생성됩니다.
+#### 드라이버 로드 시 일어나는 과정
 
-> 로드를 해주지 않으면, `DriverManager`가 어떤 **JDBC 드라이버**를 사용해야 할지 몰라 `SQLException` 예외를 발생시킵니다.
+*com.mysql.jdbc.Driver*
+
+```java
+public class Driver extends NonRegisteringDriver implements java.sql.Driver {
+  public Driver() throws SQLException {
+  }
+
+  static {
+    try {
+      DriverManager.registerDriver(new Driver());
+    } catch (SQLException var1) {
+      throw new RuntimeException("Can't register driver!");
+    }
+  }
+}
+```
+
+**JDBC 드라이버**를 동적으로 로딩하게 되면, 이 시점에 클래스 로더가 해당 클래스의 정보를 **Method Area**에 올리게 됩니다. 이 때, `static` 정보도 올라가게 되는데,
+`static`을 보면 `Driver`의 인스턴스를 생성해 `DriverManager.registerDriver`의 **Parameter**로 넘겨 줍니다.
+
+그래서 `DriverManager`는 **DI(의존성 주입)** 된 드라이버를 사용할 수 있게 되는 것 입니다.
 
 ### DBMS 접속
 
