@@ -188,4 +188,5 @@ public class Joo implements Hoo {
 
 그런데, `interface`는 `implements`를 사용할 수 없습니다. 대신 `interface` 상속을 여러 개 받을 수 있습니다.
 
-기존의 상속과 같은 개념이기 때문에, 다른 `interface`를 상속 받은 `interface`를 `implements` 한다면, 상속 받은 모든 추상 메소드를 **Overriding** 해야 합니다.
+기존의 상속과 같은 개념이기 때문에, 다른 `interface`를 상속 받은 `interface`를 `class`에서 `implements` 한다면, 상속 받은 모든 추상 메소드를 **Overriding** 해야
+합니다.

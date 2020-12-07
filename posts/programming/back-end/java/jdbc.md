@@ -99,6 +99,8 @@ public class Foo {
 
 ### SQL 문 작성 및 실행
 
+#### INSERT, UPDATE, DELETE
+
 ```java
 public class Foo {
 
@@ -110,6 +112,26 @@ public class Foo {
     preparedStatement.setString(2, "Foo");
 
     preparedStatement.executeUpdate();
+  }
+}
+```
+
+#### SELECT
+
+```java
+public class Foo {
+
+  public static void main(String[] args) {
+
+    String sql = "SELECT * FROM member";
+    preparedStatement = connection.prepareStatement(sql);
+    ResultSet resultSet = preparedStatement.executeQuery();
+
+    while (resultSet.next()) {
+      //      int idx = resultSet.getInt(1); // column index
+      int idx = resultSet.getInt("idx"); // column name
+      System.out.println(idx);
+    }
   }
 }
 ```
@@ -145,6 +167,8 @@ public class Foo {
   public static void main(String[] args) {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+
     String url = "jdbc:mysql://localhost:3306/java";
     String user = "root";
     String password = "root!";
@@ -152,15 +176,22 @@ public class Foo {
       Class.forName("com.mysql.jdbc.Driver");
       connection = DriverManager.getConnection(url, user, password);
 
-      String sql = "INSERT INTO member VALUES(?, ?)";
+      String sql = "SELECT * FROM member";
       preparedStatement = connection.prepareStatement(sql);
-      preparedStatement.setInt(1, 1);
-      preparedStatement.setInt(2, "Foo");
+      resultSet = preparedStatement.executeQuery();
 
-      preparedStatement.executeUpdate();
+      while (resultSet.next()) {
+        int idx = resultSet.getInt("idx");
+        System.out.println(idx);
+      }
     } catch (ClassNotFoundException | SQLException e) {
       e.printStackTrace();
     } finally {
+      if (resultSet != null) try {
+        resultSet.close();
+      } catch (Exception throwables) {
+        throwables.printStackTrace();
+      }
       if (preparedStatement != null) try {
         preparedStatement.close();
       } catch (Exception throwables) {
