@@ -63,7 +63,11 @@ public class Ex {
 
 ## 인터페이스 (Interface) 란?
 
-추상 클래스가 일반 클래스 + 추상화라면, 인터페이스는 Only 추상화입니다.
+`class`들이 구현해야 하는 동작을 지정하는데 사용되는 자료형입니다.
+
+`interface`를 받아 **Overriding**하는 클래스를 **구현 클래스**라고 합니다
+
+> 추상 클래스가 일반 클래스 + 추상화라면, 인터페이스는 Only 추상화입니다.
 
 ### 인터페이스 특징
 
@@ -184,9 +188,26 @@ public class Joo implements Hoo {
 }
 ```
 
-`class`는 `implements`는 여러 개 받을 수 있지만, 상속은 단, 하나만 가능합니다.
+`class`에서 `interface`는 `extends`로 받을 수 없고 반드시 `implements`로 받아야 합니다. 반면, `interface`가 `interface`를 받을 땐, `extends` 키워드를
+사용하여 상속 받아야 합니다.
 
-그런데, `interface`는 `implements`를 사용할 수 없습니다. 대신 `interface` 상속을 여러 개 받을 수 있습니다.
+> `class`가 `interface`를 받을 땐 **구현**을 해야하는 것이고, `interface`가 `interface`를 받을 땐, **확장**을 하는 개념이기 때문입니다.
 
-기존의 상속과 같은 개념이기 때문에, 다른 `interface`를 상속 받은 `interface`를 `class`에서 `implements` 한다면, 상속 받은 모든 추상 메소드를 **Overriding** 해야
-합니다.
+`class`는 `extends`는 하나만 가능하나, `implements`는 여러 개가 가능한 반면,
+`interface`는 `extends`는 여러 개를 받을 수 있으나, `implements`는 불가능합니다.
+
+### interface에 implements를 사용할 수 없는 이유
+
+`implements` 키워드를 사용하여 받으면, 무조건 받은 `interface`를 **Overriding**을 해야 합니다. 그런데 `interface`는 **Overriding**이 불가능 하기 때문에 사용할
+수 없는 것 입니다.
+
+### class는 단일 상속만 되고, interface는 다중 상속이 가능한 이유
+
+상속은 기능을 확장하는 기능입니다. 그런데, `class`는 **Overriding**하지 않으면 부모가 정의한 기능을 그대로 사용하게 됩니다. 이 때, 여러 개의 부모 클래스가 같은 이름의 메소드를 정의하였다면,
+자식 클래스는 어떤 메소드를 호출해야할지 모르기 때문에 다중 상속이 불가능합니다.
+
+반면, `interface`는 여러 개의 부모를 상속 받더라도, 똑같은 시그니처의 메소드가 있다면, 하나만 선언해두고, 해당 `interface`를 `implements`받은 `class`에서 해당 메소드를
+**Overriding**하면, 상속 받은 모든 `interface`에서 **Overriding**한 메소드를 사용하면 되기 때문에 혼란이 없습니다.
+
+> 즉, `interface`의 상속은 무조건 **Overriding**을 하기 때문에 어떤 것을 사용해야 할지 아는 반면,
+> `class`의 상속은 **Overriding**에 대한 강제성이 없기 때문에, 메소드 호출에 혼란이 있을 수 있어 다중 상속이 불가능합니다.
