@@ -1,8 +1,0 @@
-@import "static/styles/variables";
-@import "static/styles/mixins";
-
-.container {
-  @include sectionContainer();
-  @include center();
-  background-color: $basic-color;
-}
