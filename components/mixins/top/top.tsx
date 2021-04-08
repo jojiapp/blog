@@ -23,7 +23,7 @@ const Top = ({ title, description }: IProps) => (
       <div className={styles.githubContainer}>
         <div className={styles.githubWrap}>
           <a
-            href="https://github.com/jojiapp/blog"
+            href="https://github.com/jojiapp"
             target="_blank"
             className={styles.githubLink}
           >
