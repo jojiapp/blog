@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faEyeSlash } from "@fortawesome/free-regular-svg-icons/faEyeSlash";
+import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 import {
   faHtml5,
   faCss3Alt,
@@ -8,7 +8,10 @@ import {
   faReact,
   faJava,
   faPython,
+  faSass,
+  faNode,
 } from "@fortawesome/free-brands-svg-icons";
+
 import styles from "./programming-item.module.scss";
 import { useCallback } from "react";
 
@@ -23,12 +26,18 @@ const ProgrammingItem = ({ lang }: IProps) => {
         return [faHtml5, "#f6ad55"];
       case "CSS":
         return [faCss3Alt, "#4299e1"];
+      case "SCSS":
+        return [faSass, "#c76395"];
       case "Javascript":
         return [faJsSquare, "#f6e05e"];
       case "React":
         return [faReact, "#90cdf4"];
       case "Java":
         return [faJava, "#805ad5"];
+      case "Spring":
+        return [faLeaf, "#026e00"];
+      case "NodeJS":
+        return [faNode, "#026e00"];
       case "Python":
         return [faPython, "#f6e05e"];
       default:

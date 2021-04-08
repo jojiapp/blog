@@ -12,11 +12,19 @@ const programmingList: Map<string, Array<any>> = new Map<
 programmingList.set("front-end", [
   "HTML",
   "CSS",
+  "SCSS",
   "Javascript",
   "React",
   "NextJS",
 ]);
-programmingList.set("back-end", ["Java", "Python"]);
+programmingList.set("back-end", [
+  "Java",
+  "Spring",
+  "NodeJS",
+  "Express",
+  "Python",
+  "Django",
+]);
 
 const About = () => {
   const [currentContentTitle, setCurrentContentTitle] = useState("Back-end");
