@@ -45,7 +45,7 @@ const Portfolio = () => {
     <section className={styles.container}>
       <div className={styles.front}>
         <div className={styles.portfolioListInfo}>
-          <h2 className={styles.title}>Portfolio</h2>
+          <h2 className={styles.title}>포트폴리오</h2>
           <ul className={styles.portfolioList}>
             {Array.from(portfolioList.keys()).map((key) => (
               <PortfolioItem key={uuidv4()} title={key} onClick={onClick} />
