@@ -70,6 +70,7 @@
 
           .github {
             border: 0.2rem $dark-color solid;
+            font-weight: bold;
 
             .icon {
               font-size: $font-medium;
@@ -85,6 +86,7 @@
 
           .site {
             border: 0.2rem $point-color solid;
+            font-weight: bold;
 
             &:hover {
               background-color: $point-color;

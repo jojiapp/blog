@@ -15,20 +15,20 @@ interface IPortfolioList {
 
 const portfolioList = new Map<string, IPortfolioList>();
 
+portfolioList.set("Sixuniverse", {
+  title: "Sixuniverse",
+  description:
+    "‘sixuniverse’ 프로젝트는 방을 빌리는 손님과 주인 사이를 중개해주고 수수료를 떼어가는 시스템입니다. 따라서 sixuniverse의 이용자는 손님인 ‘게스트’와 주인인 ‘호스트’로 이원화 되어있으며, 각각의 니즈에 맞는 정보와 편의성을 제공하는 사이트입니다.",
+  githubUrl: "https://github.com/yts8/sixuniverse",
+  siteUrl: "https://sixuniverse.herokuapp.com/",
+});
+
 portfolioList.set("Blog", {
   title: "Blog",
   description:
     "Typescript와 React를 공부하며 간단하게 적용시켜 보고 포트폴리오와 공부한 것들을 정리하여 올리기 위한 사이트입니다.",
   githubUrl: "https://github.com/jojiapp/blog",
   siteUrl: "#",
-});
-
-portfolioList.set("Sixuniverse", {
-  title: "Sixuniverse",
-  description:
-    "‘sixuniverse’ 프로젝트는 방을 빌리는 손님과 주인 사이를 중개해주고 수수료를 떼어가는 시스템입니다. 따라서 sixuniverse의 이용자는 손님인 ‘게스트’와 주인인 ‘호스트’로 이원화 되어있으며, 각각의 니즈에 맞는 정보와 편의성을 제공하는 것이 목표입니다.",
-  githubUrl: "https://github.com/yts8/sixuniverse",
-  siteUrl: "https://sixuniverse.herokuapp.com/",
 });
 
 const Portfolio = () => {

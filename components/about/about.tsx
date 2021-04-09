@@ -17,14 +17,7 @@ programmingList.set("front-end", [
   "React",
   "NextJS",
 ]);
-programmingList.set("back-end", [
-  "Java",
-  "Spring",
-  "NodeJS",
-  "Express",
-  "Python",
-  "Django",
-]);
+programmingList.set("back-end", ["Java", "Spring", "NodeJS", "Express"]);
 
 const About = () => {
   const [currentContentTitle, setCurrentContentTitle] = useState("Back-end");
