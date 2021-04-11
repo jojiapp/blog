@@ -38,7 +38,9 @@ const About = () => {
         <div className={styles.info}>
           <h2 className={styles.title}>About</h2>
           <p className={styles.description}>
-            일단 여기에 나를 소개하긴 할건데. 그게 아직은 아니야
+            백엔드 분야로 취업을 하고 싶은 취업준비생입니다. 하지만 백엔드에
+            국한되지 않고, 호기심을 바탕으로 다양한 언어들을 공부하며 개발자로서
+            역량을 넓혀가고 싶습니다.
           </p>
         </div>
         <div className={styles.programming}>
